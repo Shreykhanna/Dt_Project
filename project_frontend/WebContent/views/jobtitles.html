@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <script src="js/jqueryoffline.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" 
+integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+
+
+<div ng-if="currentUser==undefined">
+{{gotologin()}}
+</div>
+
+<style type="text/css">
+body{
+    background:url('pic/bg14.jpg');
+    
+}
+</style>
+<div class="container">
+<div class="well">
+Search By Title: <input ng-model="searchText.jobTitle">
+Search By Date : <input ng-model="searchText.postedOn">
+Search By Skills Required : <input ng-model="searchText.skillRequired">
+</div>
+<div class="well">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Title</th><th>Posted On</th><td>Skills Required</td>
+</tr>
+</thead></div>
+<tbody>
+<tr ng-repeat="j in jobs | filter:searchText">
+<td><a href="" data-toggle="modal" data-target="#myModal" ng-click="getJobDetails(j.id)">{{j.jobTitle}}</a></td>
+<td>{{j.postedOn | date : 'yyyy-MM-dd'}}</td>
+<td>{{j.skillRequired}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- <div ng-show="showJobDetails">
+<b>Job Title :</b> {{job.jobTitle}}<br>
+<b>Job Description :</b> {{job.jobDescription}}<br>
+<b>Skills Required :</b> {{job.skillRequired}}<br>
+<b>Years Of Experience :</b> {{job.yrsOfExp}}<br>
+<b>Salary :</b> {{job.salary}}<br>
+<b>Location :</b> {{job.location}}<br>
+<b>Company Name :</b> {{job.companyname}}<br>
+<b>Posted On :</b> {{job.postedOn | date:'yyyy:MM:dd'}}<br>
+</div> -->
+
+<style type="text/css">
+.profile-head { width:100%;background-color: rgb(255, 102, 0);float: left;padding: 15px 5px;}
+.profile-head img { height:150px; width:150px; margin:0 auto; border:5px solid #fff; border-radius:5px;}
+.profile-head h5 {width: 100%;padding:5px 5px 0px 5px;text-align:justify;font-weight: bold;color: #fff;font-size: 25px;text-transform:capitalize;
+margin-bottom: 0;}
+.profile-head p {width: 100%;text-align: justify;padding:0px 5px 5px 5px;color: #fff;font-size:17px;text-transform:capitalize;margin:0;}
+.profile-head a {width: 100%;text-align: center;padding: 10px 5px;color: #fff;font-size: 15px;text-transform: capitalize;}
+.profile-head ul { list-style:none;padding: 0;}
+.profile-head ul li { display:block; color:#ffffff;padding:5px;font-weight: 400;font-size: 15px;}
+.profile-head ul li:hover span { color:rgb(0, 4, 51);}
+.profile-head ul li span { color:#ffffff;padding-right: 10px;}
+.profile-head ul li a { color:#ffffff;}
+.profile-head h6 {width: 100%;text-align: center;font-weight: 100;color: #fff;font-size: 15px;text-transform: uppercase;margin-bottom: 0;}
+@media all and (max-width:430px){
+.profile-head ul li {font-size: 12px !important;}
+.bio-table>tbody>tr>td {font-size: 13px;}
+}
+</style>
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="background:none;padding:5px">
+     <div  ng-show="showJobDetails" style="margin-top: 30px;">
+<div class="profile-head row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<h5>{{job.companyname}}</h5><br/>
+<p>{{job.jobTitle}}</p> <br/>
+<ul>
+<li> <b>Experience Required :</b>  <span class="glyphicon glyphicon-briefcase"></span> {{job.yrsOfExp}}</li>
+<li> <b>Job Description   : </b><span class="glyphicon glyphicon-pencil"></span> {{job.jobDescription}}</li>
+<li><b>Skills Required    :</b><span class="glyphicon glyphicon-tasks"></span>{{job.skillRequired}}</li>
+<li><b>Location           :</b><span class="glyphicon glyphicon-map-marker"></span>{{job.location}}</li>
+<li><b>Salary             :</b><i class="fa fa-inr">{{job.salary}}</i></li>
+<li><b> Posted On            : </b><span class="glyphicon glyphicon-edit"></span>{{job.postedOn | date:'yyyy:MM:dd'}}</li>
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</head>
+</body>
+</html>

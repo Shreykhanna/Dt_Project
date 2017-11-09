@@ -1,0 +1,72 @@
+<div ng-if="currentUser==undefined">
+{{gotologin()}}
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<style>
+h3{
+    margin:5px;
+    padding: 5px;
+}
+.btn-custom{
+ border: none;   
+}
+#toolbar-admin{
+    display: none;
+}
+</style>
+<div class="container">
+	<div class="row">
+		
+		<div class="panel panel-primary">
+		    <div class="panel-heading">
+		        <h3>List Of Friends
+    		        
+		        </h3>
+		    </div>
+		    <div id="toolbar-admin" class="panel-body">
+		        <div class="btn-toolbar" role="toolbar" aria-label="admin">
+                    <div class="btn-group pull-right" role="group">
+                        <button id="btn-online" class="btn btn-success">Online</button>
+                        <button id="btn-offline" class="btn btn-warning">Offline</button>
+                        <button id="btn-out-of-order" class="btn btn-danger">Out Of Order</button>
+                    </div>
+                </div>
+		    </div>
+		    <table class="table table-striped table-hover" width="60%">
+		        <thead>
+		            <tr>
+		                
+		                
+		              
+		                <th>Friend name</th>
+		                 <th>Friend Profile Pic</th>
+		                
+		            </tr>
+		        </thead>
+		        <tbody>
+		            <tr class="success" ng-repeat="friend in friends">
+		                
+		                
+		                <td ng-hide="friend.fromId==currentUser.username">{{friend.fromId}}</td>
+		                
+		                <td  ng-hide="friend.toId==currentUser.username">{{friend.toId}}</td>
+		                <!-- <td><img src="http://localhost:8090/project2_backend/getimage/{{friend.fromId}}"
+ng-hide="friend.fromId==currentUser.username" height="30px" width="30px"></td> -->
+		                <td><img src="http://localhost:8090/project2_backend/getimage/{{friend.toId}}"
+ng-hide="friend.toId==currentUser.username" height="30px" width="30px"></td>
+		            </tr>
+		            
+		            
+		                </tbody>
+		                </table>
+		                </div>
+		                </div>
+		                </div>
+</body>
+</html>

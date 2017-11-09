@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<title>Insert title here</title>
+</head>
+<body>
+<style type="text/css">
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body
+{
+    font-family: 'Open Sans', sans-serif;
+}
+.fb-profile img.fb-image-lg{
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+}
+.fb-image-profile
+{
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%; 
+}
+@media (max-width:768px)
+{
+    
+.fb-profile-text>h1{
+    font-weight: 700;
+    font-size:16px;
+}
+.fb-image-profile
+{
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 20%; 
+}
+}
+body{
+    background:url('pic/bg12.jpg');
+    
+}
+</style>
+</head>
+<body>  
+    
+    <div class="container">
+    <div class="fb-profile">
+        <img align="left" class="fb-image-lg" src="http://lorempixel.com/850/280/nightlife/5/" alt="Profile image example"/>
+        <img align="left" class="fb-image-profile thumbnail" src="src="http://localhost:8090/project2_backend/getimage/{{user.username}}"/>
+        <div class="fb-profile-text">
+            <div>    <h1>{{user.firstname}} {{user.lastname}}</h1></div>
+        <div style="padding-left:300px";>   <h3> <i class="glyphicon glyphicon-user"></i>Username :        {{user.username}}</h3></div> 
+          <div style="padding-left:300px";>  <h3><i class="glyphicon glyphicon-envelope"></i>E-mail :      {{user.email}} </div>
+                             </h3>
+         <div style="padding-left:300px";>   <h3> <i class="glyphicon glyphicon-phone"></i>Contact :        {{user.phonenumber}} </div>
+                             </h3>
+        <div style="padding-left:300px";>    <h3><i class="glyphicon glyphicon-lock"></i>Role :             {{user.role}}</i> </h3> </div>
+            
+            <div style="padding-left:300px"; ng-if="user.online"><h3>Status :</h3><span style="color:#54ff26;" class="glyphicon glyphicon-fire"; ></span></div>
+<div ng-if="!user.online"> <span style=" font-size:20px;color: #f0321f;" class="glyphicon glyphicon-fire"></span>
+        </div>
+       
+        
+         <center>    <a href="#/pendingRequests" button type="button" class="btn btn-primary btn-lg">Back</a></button></center>
+    </div>
+</div>
+</div>
+   
+</body>
+</html>

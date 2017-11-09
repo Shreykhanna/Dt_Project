@@ -1,0 +1,48 @@
+<div ng-if="currentUser==undefined">
+{{gotologin()}}
+</div>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+
+ 
+    
+<div class="row">
+<div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div>{{blogPost.blogTitle}}</div>
+<span><strong>Created By:</strong>{{blogPost.postedBy.username}}</span>
+<span><strong>on: </strong>{{blogPost.postedOn | date:'medium'}} </span>
+<img src="pic/{{blogPost.id}}.jpg" height="100" width="100" alt="not image">
+</div>
+<div class="panel-body">
+{{blogPost.description}}  
+</div>
+</div>
+
+</div>
+</div>
+<form>
+{{error.message}}
+<textarea rows="4" cols="15" ng-model="blogComment.commentText"></textarea>
+<input type="submit" ng-click="addComment()">
+
+</form>
+
+<a ng-click="getComments()"> Show Comments</a><br>
+<ul ng-show="showcomments">
+<li ng-repeat="blogComment in blogComments" style="list-style:none">
+<span>{{blogComment.commentText}}</span>
+<span><strong>Commented By </strong>{{blogComment.commentedBy.username}}</span>
+<span><strong>Commented On</strong>{{blogComment.commentedOn | date: 'MM/dd/yyyy'}}</span>
+</li>
+</ul>>

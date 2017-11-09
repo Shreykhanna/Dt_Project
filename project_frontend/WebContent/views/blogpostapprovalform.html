@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div ng-if="currentUser==undefined">
+{{gotologin()}}
+</div>
+
+<div class="row">
+<div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div> {{blogPost.blogTitle}} </div>
+<span><strong> Created By:</strong>{{blogPost.postedBy.username}}</span>
+<span><strong>on: </strong>{{blogPost.postedOn | date:'medium'}}</span>
+</div>
+<div class="panel-body">
+{{blogPost.description}} {{blogPost.id}}
+</div>
+<div>
+<img src="pic/{{blogPost.id}}.jpg" height="100" width="100" alt="not image">
+</div>
+</div>
+</div>
+
+</div>
+<form ng-submit="updateBlogPost()">
+<input type="radio" ng-model="blogPost.approved" value="true"> Approve
+<input type="radio" ng-model="blogPost.approved" value="false"> Reject
+<input type="submit" >
+</form>
+</body>
+</html>

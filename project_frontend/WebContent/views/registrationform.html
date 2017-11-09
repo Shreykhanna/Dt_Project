@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+
+		<!-- Website CSS style -->
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+		<title>Registration Page</title>
+	
+	
+<style type="text/css">
+body{
+     background:url('pic/bg9.jpg');
+}
+ 
+legend{
+	color:#141823;
+	font-size:25px;
+	font-weight:bold;
+}
+.signup-btn {
+  
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  
+  border: solid #3b6e22  1px;
+  text-decoration: none;
+}
+.signup-btn:hover {
+  background: #79bc64;
+}
+.form .form-control { margin-bottom: 10px; }
+@media (min-width:568px) {
+	#home{
+		 margin-top:50px;
+	}
+	
+}
+div.transbox {
+ 
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.8;
+  filter: alpha(opacity=60);
+  }
+</style>
+</head>
+
+<body>
+ <div class="background">
+  <div class="transbox">  
+ {{error.message}}
+ <div class="container">
+	  <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form  method="post" accept-charset="utf-8" class="form" role="form" ng-submit="registerUser()">   <legend>Sign Up</legend>
+                    <h4>It's free and always will be.</h4>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text" name="firstname" value="" class="form-control input-lg" ng-model="user.firstname" placeholder="First Name" required />   
+                                                 </div>
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text" name="lastname" value="" class="form-control input-lg"ng-model="user.lastname" placeholder="Last Name" required /> 
+                                                   </div>
+                    </div>
+                    <input type="text"  class="form-control input-lg" ng-model="user.email"  placeholder="Your Email"  required/>
+                     <input type="text"  class="form-control input-lg"  ng-model="user.username" placeholder="Your Username"  required/>
+                    <input type="password" class="form-control input-lg" ng-model="user.password" placeholder="Password"  required />
+                     <input type="text"  class="form-control input-lg" ng-model="user.phonenumber" placeholder="Your phone number"  required/>
+                      
+                      <input type="radio" value="STUDENT" ng-model="user.role"><font size="4" face="Cooper Black"> Student 
+                      <input type="radio" value="ALUMINI" ng-model="user.role">Alumini
+                          <input type="radio" value="EMPLOYEE" ng-model="user.role">Employee
+                          </font>
+                   
+                     
+                           <br/>
+                           <br/>            
+                        
+              
+                    <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
+                        Create my account</button>
+                         <br/>
+                           <br/>            
+                        
+            </form>          
+          </div>
+          </div>
+          
+</div>            
+</div>
+</div>

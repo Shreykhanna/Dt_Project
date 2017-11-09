@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page </title>
+<style type="text/css">
+body{
+    background:url('pic/bg3.jpg');
+    padding:50px;
+}
+/*Slider*/
+#myCarousel .nav a small
+{
+    display: block;
+}
+#myCarousel .nav
+{
+    background: #eee;
+}
+.nav-justified > li > a
+{
+    border-radius: 0px;
+}
+.nav-pills>li[data-slide-to="0"].active a { background-color: #16a085; }
+.nav-pills>li[data-slide-to="1"].active a { background-color: #e67e22; }
+.nav-pills>li[data-slide-to="2"].active a { background-color: #2980b9; }
+.nav-pills>li[data-slide-to="3"].active a { background-color: #8e44ad; }
+/*Jumbotron*/
+.jumbotron{
+    margin-bottom:20px;
+    margin-top:20px;
+    position:center;
+   
+}
+.pricing {
+    text-align: center;
+}
+/*Page Header*/
+.page-header{
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<!-- <div ng-show="currentUser.role=='ADMIN'">
+<a href="#/getallblogs">You Have {{blogPostsWaitingForApproval.length}} blogposts waiting for approval</a> -->
+
+
+ <div class="row" >
+    <div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="http://placehold.it/1200x400/16a085/ffffff&text=About Us">
+                <div class="carousel-caption">
+                   
+                    <p>
+                        We could suggest a better way out for faster recruitment, a job portal 
+                        which is meant for employers,job seekers and recruiters. 
+                                                                              </p>
+                </div>
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <img src="http://placehold.it/1200x400/e67e22/ffffff&text=Projects">
+                <div class="carousel-caption">
+                   
+                    <p>
+                    Whether you are looking for a job or a new member of your staff team,
+                    you definitely have the right place. The best way to change your career
+                    or get the right people for the jobs is quite easy now.
+                                                                          </p>
+                </div>
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <img src="http://placehold.it/1200x400/2980b9/ffffff&text=Portfolio">
+                <div class="carousel-caption">
+                    <p>
+                        For individuals thinking about new job, new career, or new direction,
+                        it helps you explore the possibilities and find the opportunities that
+                        are right for you.</p>
+                </div>
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <img src="http://placehold.it/1200x400/8e44ad/ffffff&text=Services">
+                <div class="carousel-caption">
+               
+                    <p>
+                        For employers looking to recruit the most qualified candidates,
+                        it offers modern technology and superior services to simplify your 
+                        recruitment process.
+                                         </p>
+                </div>
+            </div>
+            <!-- End Item -->
+        </div>
+        <!-- End Carousel Inner -->
+        <ul class="nav nav-pills nav-justified">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#">About<small>My Job Portal 
+                </small></a></li>
+            <li data-target="#myCarousel" data-slide-to="1"><a href="#">Projects<small>Find Suitable
+                 Job For You</small></a></li>
+            <li data-target="#myCarousel" data-slide-to="2"><a href="#">Portfolio<small>Job Post 
+                 and Blogs</small></a></li>
+            <li data-target="#myCarousel" data-slide-to="3"><a href="#">Services<small>Jobs
+                </small></a></li>
+        </ul>
+    </div>
+    <!-- End Carousel -->
+</div>
+        </div>
+
+
+      <div class="container" ng-show="currentUser.role=='ADMIN'">
+       <div class="jumbotron">
+          <h1>Read Our Blogs Here...!!!</h1>
+          <p>...</p>
+          <p><a class="btn btn-primary btn-lg" href="#/getallblogs" role="button">Learn more{{blogPostsWaitingForApproval.length}}</a></p>
+        </div>
+      </div>
+
+    <div class="page-header">
+  <h1>How Its Works</h1>
+</div>
+
+    <div class="container">
+    			<div class="row pricing">
+                        <div class="col-md-6">
+						<div class="well">
+							<h3><b>Looking For An EMPLOYEE?</b></h3>
+							<hr>
+							<p><b>Create an employer account. It's easy.</b></p>
+							<hr>
+							<p><b>Choose your industry and Job Title</b></p>
+							<hr>
+							<p><b>Tell us the candidate you’re looking for.</b></p>
+                            <hr>
+							<p><b>Tell us about the vacancy you want to share here.</b></p>
+                            <hr>
+							<p><b>Only pay when someone applies. No more waste.</b></p>
+							<hr>
+							<a href="#/login" ng-hide="currentUser.firstname" class="btn btn-default btn-block">Login</a>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="well">
+							<h3><b>Looking For A JOB?</b></h3>
+							<hr>
+							<p><b>Create your account. It’s free.</b></p>
+							<hr>
+							<p><b>Join the millions of Job Seekers by making friends.</b></p>
+							<hr>
+							<p><b>Tell us about yourself.</b></p>
+                            <hr>
+							<p><b>Read and improve yourself for job openings.</b></p>
+                            <hr>
+							<p><b>One Click from jobs anytime. Anywhere.</b></p>
+							<hr>
+							<a href="#/register" ng-hide="currentUser.firstname" class="btn btn-default btn-block">JoinNow!</a>
+						</div>
+					</div>
+                </div>
+     </div>
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+
+</body>
+</html>
+
+  

@@ -1,0 +1,52 @@
+<div ng-if="currentUser==undefined">
+{{gotologin()}}
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<style>
+body{
+    background:url('pic/bg8.jpg');
+   
+}
+body{padding-top:30px;}
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+small {
+display: block;
+line-height: 1.428571429;
+color: #999;
+}
+</style>
+
+
+         <div class="container" >
+       <div class="col-sm-4"  ng-repeat="user in suggestedusers">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="http://localhost:8090/project2_backend/getimage/{{user.username}}" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4><i class="glyphicon glyphicon-user"></i><a href="#/getUserDetails/{{user.username}}">{{user.firstname}} {{user.lastname}}</a></h4>
+                        
+                        <p>
+                            <i class="glyphicon glyphicon-lock"></i>{{user.role}}
+                            <br />
+                       
+                            <!-- <i class="glyphicon glyphicon-globe"></i><b ng-if="user.online">Online : Yes</b>
+                            <br />
+                            <i class="glyphicon glyphicon-globe"></i><b ng-if="!user.online"> No</b></p> -->
+                        
+                        <a ng-click="friendRequest(user.username)" class="btn btn-primary btn-lg">Send Friend Request</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+         
+</body>
+</html>

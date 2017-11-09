@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+      <div class="col-md-12 col-md-offset-0">
+        <div class="well well-sm">
+          <form class="form-horizontal"  method="post" ng-submit="addBlogPost()">
+          <fieldset>
+            <legend class="text-center"><h1>Post Your Blog Here....!!!</h1></legend>
+    
+            
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name"><h2>Enter Your Blog Title</h2></label><br/>
+              <div class="col-md-9">
+                <input type="text"  type="text" placeholder="Blog Title" class="form-control" ng-model="blogPost.blogTitle" required>
+              </div>
+            </div>
+            
+            
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name"><h2>Write Your Blog Here</h2></label><br/>
+              <div class="col-md-9">
+                <textarea class="form-control"  type="text" placeholder="Write Your Blog Here......!!!" class="form-control" ng-model="blogPost.description" rows="50" required></textarea>
+              </div>
+            </div>
+    
+    
+     <div class="form-group">
+              <label class="col-md-3 control-label" for="name"><h2>Choose Cover Picture For Your Blog</h2></label><br/>
+              <div class="col-md-9">
+                <input type="file" data-upload-url="" name="image" class="form-control" id="myFile" required>
+              </div>
+            </div>
+    
+           
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-primary btn-lg" value="Post My Blog">Post Blog</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+	</div>
+</div>
+ 
+ 
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+$(document).ready(function(){
+   $('.dropdown-toggle').dropdown()
+});
+</script>
+<meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <script src="js/jqueryoffline.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+
+<title>Index Page </title>
+</head>
+<body ng-app="app">
+
+<div class="container text-center" style=background-color: black; padding top:0px;>
+ <marquee> <img src="pic/my job.png" height=100px width=250px>   
+ </marquee> 
+ <br>
+  </div>
+<header>
+            <nav class="navbar navbar-default" style=background-color:dark grey;>
+            
+           <div class="container-fluid" style=background-color:dark grey;>
+		<button type="button" class="navbar-toggle collapsed" 
+   data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/home"> 	Cool Collab  </a>
+                </div>
+<div class="collapse navbar-collapse" id="collapse-example" style=background-color:dark grey;>
+                <ul class="nav navbar-nav ">
+                <li><a href="#/home">Home</a></li>
+                <li><a href="#/aboutus">About Us</a></li>
+                <li><a href="#/getUserDetails/{{currentUser.username}}" ng-show="currentUser.firstname">Welcome {{currentUser.firstname}} {{currentUser.lastname}} </a></li>
+                <li><a href="#/editprofile" ng-show="currentUser.firstname">Edit User Profile</a></li>
+                
+                
+                <li><a href="#/uploadprofilepic" ng-show="currentUser.username">
+                <img src="http://localhost:8090/project2_backend/getimage/{{currentUser.username}}" 
+                alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
+                    
+                <li><a href="#/savejob" ng-show="currentUser.role=='ADMIN'">Save Job</a></li>
+                <li><a href="#/getalljobs" ng-show="currentUser.firstname">Get All Jobs</a></li>
+                
+                <li class="dropdown"><a href="" class="dropdown-toggle"
+                data-toggle="dropdown" ng-show="currentUser.username"> Blog <b
+                 class="caret"></b></a>
+                 <ul class="dropdown-menu">
+                 <li><a href="#/getallblogs">View All Blogs</a></li>
+                 <li><a href="#/saveblogpost">Post Blog</a></li>
+                 </ul>
+                 </li>
+                 
+                <li class="dropdown"><a href="" class="dropdown-toggle"
+                data-toggle="dropdown" ng-show="currentUser.username"> Friend <b
+                class="caret"></b></a>
+                <ul class="dropdown-menu">
+                <li><a href="#/suggesteduserslist">List of Suggested Users </a></li>
+                <li><a href="#/pendingrequest"> Pending requests</a></li>
+                <li><a href="#/listoffriends">List Of Friends</a></li>
+                </ul></li>
+      
+                <li><a href="#/chat" ng-show="currentUser.firstname">Chat</a></li>
+                <li><a href="#/register" ng-hide="currentUser.firstname">Sign Up</a></li>
+                <li><a href="#/login" ng-hide="currentUser.firstname">Sign In</a></li>
+                <li><a href="" ng-click="logout()" ng-show="currentUser.firstname">logout</a>
+               
+                </ul>
+
+</div>
+</div>
+  
+            </nav>
+        </header>
+        
+        
+       
+<div ng-view></div>
+</body>
+<script type="text/javascript"
+	src="js/angular.js"></script>
+	<script type="text/javascript"
+	src="js/angular-route.js"></script>
+	
+	<script type="text/javascript"
+	src="js/angular-cookies.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="controller/usercontroller.js"></script>
+	<script type="text/javascript" src="service/userservice.js"></script>
+	<script type="text/javascript" src="controller/jobcontroller.js"></script>
+	<script type="text/javascript" src="service/jobservice.js"></script>
+	<script type="text/javascript" src="controller/blogpostcontroller.js"></script>
+	<script type="text/javascript" src="service/blogpostservice.js"></script>
+	<script type="text/javascript" src="controller/blogpostdetailcontroller.js"></script>
+	<script type="text/javascript" src="controller/friendcontroller.js"></script>
+	<script type="text/javascript" src="controller/jobdetailcontroller.js"></script>
+	<script type="text/javascript" src="controller/frienddetailcontroller.js"></script>
+	<script type="text/javascript" src="service/friendservice.js"></script>
+	<script src="js/sockjs/sockjs.js"></script>
+    <script src="js/stomp/dist/stomp.js"></script>
+    <script type="text/javascript" src="controller/chatcontroller.js"></script>
+    <script type="text/javascript" src="service/chatservice.js"></script>
+	<link href="css/sample.css"/>
+	
+	
+<!-- footer  -->
+<style>
+footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+.footer h3 {
+	border-bottom: 1px solid #BAC1C8;
+	color: #54697E;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 27px;
+	padding: 1px 0 1px;
+	text-transform: uppercase;
+}
+.footer ul {
+	font-size: 17px;
+	list-style-type: none;
+	margin-left: 10;
+	padding-left: 0;
+	margin-top: 15px;
+	color: #7F8C8D;
+}
+.footer ul li a {
+	padding: 0 0 10px 0;
+	display: block;
+}
+.footer a {
+	color: #78828D
+}
+.bg-gray {
+	background-image: -moz-linear-gradient(center bottom, #BBBBBB 0%, #F0F0F0 100%);
+	box-shadow: 0 1px 0 #B4B3B3;
+}
+.social li {
+	background: none repeat scroll 0 0 #B5B5B5;
+	border: 7px solid #B5B5B5;
+	border-radius: 70%;
+	float:left;
+	height: 50px;
+	line-height: 36px;
+	margin: 70px 8px 0 0;
+	padding: 10px;
+	text-align: center;
+	width: 50px;
+	
+}
+.social li a {
+	color: #EDEFF1;
+}
+.social li a i {
+	font-size: 30px;
+	margin: 10 10 10 5px;
+	color: #EDEFF1 !important;
+}
+ </style>
+  <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+ 
+ <footer class="container">
+
+<footer>
+<div class="footer" id="footer">
+<div class="container">
+<div class="row">
+<div class="col-lg-2  col-md-2 col-sm-5 col-xs-6">
+<h3> Get to Know Us </h3>
+<ul>
+<li> <a href="#/contact"> Contact Us </a> </li>
+<li> <a href="#/aboutus"> About Us </a> </li>
+</ul>
+</div>
+<div class="col-lg-2  col-md-2 col-sm-5 col-xs-6">
+<h3> Contact Us </h3>
+<ul>
+<li><a href="#/contact"><span class="glyphicon glyphicon-iphone"></span>(+8801)7123456</a></li>
+<li> <a href="#/contact"><span class="glyphicon glyphicon-envelope"></span>support@coolcollab.com </a> </li>
+</ul>
+</div>
+<div class="col-lg-2  col-md-2 col-sm-5 col-xs-6">
+<h3> Our services </h3>
+                    <ul>
+                        <li> <a href="#/saveblogpost"> Post Blog </a> </li>
+                        <li> <a href="#/getallblogs"> Read Blogs </a> </li>
+                        <li> <a href="#/getalljobs"> View Jobs here </a> </li>
+                        <li> <a href="#/chat"> Chat and be friends </a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2  col-md-2 col-sm-5 col-xs-6">
+                    <h3> Address </h3>
+                    <ul>
+                        <li> Cool Collab</li>
+                        <li> Ardee City, Sector 52,</li>
+                        <li> Gurgaon,  </li>
+                        <li> Haryana - 122011 </li>
+                        <li> India </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+                    <ul class="social">
+                        <li> <a href="https://www.facebook.com/login/"> <i class=" fa fa-facebook">   </i> </a> </li>
+                        <li> <a href="https://twitter.com/login"> <i class="fa fa-twitter">   </i> </a> </li>
+                        <li> <a href="https://plus.google.com/"> <i class="fa fa-google-plus">   </i> </a> </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    
+    <div class="footer-bottom">
+     <div class="container">
+    <p class="pull-left"> Copyright © Cool Collab 2017. All right reserved By Pratibha Singh. </p>
+            
+        </div>
+    </div>
+    </footer>
+    
+</footer>	
+	
+</html>
